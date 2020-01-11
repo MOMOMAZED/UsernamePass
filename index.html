@@ -66,17 +66,14 @@ input {
 <div class="container">
 
     
-<label for="uname"><b>Username</b></label>
+    <form name="login"><label for="uname"><b>Username</b></label>
       <input type="text" placeholder="Enter Username" id="idd" name="uname" required>
     <label for="psw">Password</label>
-    <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="password"" required>
-    <button type="submit">Login</button>
-
-    
-  </form>
+    <input type="password" placeholder="Enter Password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="password" required>
+    <center><input type="button" value="Login"
+      onClick="pasuser(this.form)"></center></td><td><center><br><input
+      type="Reset"></form></td></tr></table></center>    
   
-    
-    
     
   </form>
 </div>
@@ -86,19 +83,23 @@ input {
   <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
   <p id="capital" class="invalid">an <b>uppercase</b> letter</p>
   <p id="number" class="invalid">A <b>number</b></p>
+
   <p id="length" class="invalid">minimum <b>8 characters</b></p>
+  <p id="specialcc" class="invalid">minimum <b>Special Characters</b></p>
+
 </div>
 <div class="container" style="background-color:#f1f1f1">
   <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
   <span class="psw">Forgot <a href="#">password?</a></span>
 </div>	
 <script>
-var name = document.getElementById('idd');
-var arrayy = ["Kester", "Mike", "Lashmith", "Kate"];
+
+const name = document.getElementById('idd');
+const arrayy = ["Kester", "Mike", "Lashmith", "Kate"];
 var i = 0
 for (i = 0; i < arrayy; i++ )
 {
-if (arrayy[i].match, name) // if array.matchane,otherarray name ;
+if (arrayy[i].match (name)); // if array.matchane,otherarray name ;
 {
   alert("bro this dont work chief")
 } 
@@ -110,6 +111,7 @@ var letter = document.getElementById("letter");
 var capital = document.getElementById("capital");
 var number = document.getElementById("number");
 var length = document.getElementById("length");
+var specialcc = document.getElementById("specialcc");
 
 // When the user clicks on the password field, show the message box
 myInput.onfocus = function() {
@@ -161,6 +163,16 @@ myInput.onkeyup = function() {
   } else {
     length.classList.remove("valid");
     length.classList.add("invalid");
+  }
+  //validate special
+  var specialc = /[!-*]/g;
+  if(myInput.value.match (specialc))
+  {
+    specialcc.classList.remove("invalid");
+    specialcc.classList.add("valid");
+  } else {
+    specialcc.classList.remove("valid");
+    specialcc.classList.add("invalid");
   }
 }
 </script>
